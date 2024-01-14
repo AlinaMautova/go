@@ -1,0 +1,19 @@
+{{template "base" .}}
+{{ define "for_students.tmpl" }}
+{{define "title"}}Students News{{end}}
+{{define "main"}}
+
+<!-- Main content for the students category -->
+<h1>Students Category</h1>
+{{ if .NewsList }}
+{{ range .NewsList }}
+{{ if eq .Category "students" }}
+<h2>{{ .Title }}</h2>
+<p>{{ .Content }}</p>
+{{ end }}
+{{ end }}
+
+<!-- Include the footer partial -->
+{{ template "footer.partial.tmpl" . }}
+
+{{ end }}

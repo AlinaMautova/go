@@ -1,0 +1,23 @@
+{{template "base" .}}
+{{ define "for_staff.tmpl" }}
+{{define "title"}}Staff News{{end}}
+{{define "main"}}
+
+<!-- Main content for the staff category -->
+<h1>Staff Category</h1>
+
+{{ if .NewsList }}
+{{ range .NewsList }}
+{{ if eq .Category "staff" }}
+<h2>{{ .Title }}</h2>
+<p>{{ .Content }}</p>
+{{ end }}
+{{ end }}
+{{ else }}
+<p>No news items available for the staff category.</p>
+{{ end }}
+
+<!-- Include the footer partial -->
+{{ template "footer.partial.tmpl" . }}
+
+{{ end }}
